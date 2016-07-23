@@ -8,6 +8,7 @@ var mongo = require('mongodb').MongoClient;
 
 //se importa el modulo usuarios
 var usuarios = require("./routes/usuarios");
+var api = require("./routes/api");
 
 var app = express();
 var mBD;
@@ -38,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //se especifica la ruta raiz del api
 app.use('/usuarios', usuarios);
-
+app.use('/api', api);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
